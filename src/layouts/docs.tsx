@@ -5,16 +5,21 @@ import {
   EuiPageTemplate,
   EuiSideNav,
   htmlIdGenerator,
+  EuiImage,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiSpacer,
+  EuiTitle,
+  EuiBadge,
 } from '@elastic/eui';
-import ThemeSwitcher from '../components/chrome/theme_switcher';
-import { docsLayout } from './docs.styles';
+
+import { HomePageStyles } from './docs.styles';
 
 const pathPrefix = process.env.PATH_PREFIX;
 
 const DocsLayout = ({ pageHeader, children }) => {
   const sideNav = [
     {
-      name: 'Docs',
       id: htmlIdGenerator('basicExample')(),
       items: [
         {
@@ -31,39 +36,48 @@ const DocsLayout = ({ pageHeader, children }) => {
     },
   ];
 
-  const styles = docsLayout();
+  const styles = HomePageStyles();
+  const imageStyles = styles.profileImage;
+  const nameStyles = styles.profileName;
+
+  const sideBarContents = (
+    <>
+      <EuiImage
+        size="l"
+        hasShadow
+        alt="Many small white-spotted pink jellyfish floating in a dark aquarium"
+        src="https://images.unsplash.com/photo-1650253618249-fb0d32d3865c?w=900&h=900&fit=crop&q=60"
+        css={imageStyles}
+      />
+
+      <EuiSpacer />
+
+      <EuiFlexGroup justifyContent="center">
+        <EuiFlexItem grow={false}>
+          <EuiTitle size="s" css={nameStyles}>
+            <h1>Bree Hall</h1>
+          </EuiTitle>
+          <EuiSpacer size="xs" />
+          <EuiTitle size="xs" css={nameStyles}>
+            <p>Software Engineer</p>
+          </EuiTitle>
+        </EuiFlexItem>
+      </EuiFlexGroup>
+
+      <EuiSpacer />
+
+      <EuiSideNav mobileTitle="Nav Items" items={sideNav} />
+    </>
+  );
 
   return (
-    <div css={styles.wrapper}>
-      <EuiHeader
-        theme="dark"
-        position="fixed"
-        sections={[
-          {
-            items: [
-              <EuiHeaderLogo
-                key="elastic-docs"
-                iconType="logoElastic"
-                href={`${pathPrefix}/docs`}>
-                Elastic docs
-              </EuiHeaderLogo>,
-            ],
-            borders: 'none',
-          },
-          {
-            items: [<ThemeSwitcher key={useGeneratedHtmlId()} />],
-            borders: 'none',
-          },
-        ]}
-      />
-      <EuiPageTemplate>
-        <EuiPageTemplate.Header {...pageHeader} />
-        <EuiPageTemplate.Sidebar sticky={true}>
-          <EuiSideNav mobileTitle="Nav Items" items={sideNav} />
-        </EuiPageTemplate.Sidebar>
-        <EuiPageTemplate.Section>{children}</EuiPageTemplate.Section>
-      </EuiPageTemplate>
-    </div>
+    <EuiPageTemplate>
+      <EuiPageTemplate.Header {...pageHeader} />
+      <EuiPageTemplate.Sidebar sticky={true}>
+        {sideBarContents}
+      </EuiPageTemplate.Sidebar>
+      <EuiPageTemplate.Section>{children}</EuiPageTemplate.Section>
+    </EuiPageTemplate>
   );
 };
 

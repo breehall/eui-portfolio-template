@@ -1,8 +1,11 @@
 import { css } from '@emotion/react';
 
-export const docsLayout = () => ({
-  wrapper: css`
-    min-height: calc(100vh - 48px);
-    display: flex;
+export const HomePageStyles = () => ({
+  profileImage: css`
+    border-radius: 50%;
+  `,
+
+  profileName: css`
+    text-align: center;
   `,
 });
