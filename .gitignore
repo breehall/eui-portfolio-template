@@ -10,6 +10,7 @@
 .vim/.netrwhist
 yarn-error.log
 .eslintcache
+.prettierrc
 
 # Files in here are copied by the build
 public/themes
