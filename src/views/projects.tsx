@@ -4,7 +4,7 @@ import {
   ProjectCardProps,
 } from '../components/project_card/project_card';
 import { SectionHeader } from '../components/section_header/section_header';
-import { EuiFlexGrid, EuiTitle } from '@elastic/eui';
+import { EuiFlexGrid } from '@elastic/eui';
 
 type ProjectsSectionProps = {
   projects: Array<ProjectCardProps>;

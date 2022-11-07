@@ -8,11 +8,16 @@ import {
 } from '@elastic/eui';
 import { FunctionComponent } from 'react';
 
+type TechUsedBadge = {
+  badgeTitle: string;
+  badgeColor: string;
+};
+
 export type ProjectCardProps = {
   projectTitle: string;
   projectDescription: string;
   previewImageURL: string;
-  techUsed: Array<string>;
+  techUsed: Array<TechUsedBadge>;
   linkToCode?: string;
   linkToDemo?: string;
 };
@@ -25,11 +30,12 @@ export const ProjectCard: FunctionComponent<ProjectCardProps> = ({
   linkToCode,
   linkToDemo,
 }) => {
-  // TODO: Create a config to map technologies to a specific color
   const techUsedBadges = techUsed.map((tech, index) => {
+    const { badgeTitle, badgeColor } = tech;
+
     return (
       <EuiFlexItem grow={false} key={index}>
-        <EuiBadge color="default">{tech}</EuiBadge>
+        <EuiBadge color={badgeColor}>{badgeTitle}</EuiBadge>
       </EuiFlexItem>
     );
   });
