@@ -8,7 +8,7 @@ import {
 } from '@elastic/eui';
 import { FunctionComponent } from 'react';
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
   projectTitle: string;
   projectDescription: string;
   previewImageURL: string;
