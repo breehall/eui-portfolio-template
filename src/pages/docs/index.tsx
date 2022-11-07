@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
-import { EuiText } from '@elastic/eui';
+import { EuiText, EuiFlexGroup } from '@elastic/eui';
 import DocsLayout from '../../layouts/docs';
+import { ProjectCard } from '../../components/project_card/project_card';
 
 const Index: FunctionComponent = () => {
   return (
@@ -19,6 +20,31 @@ const Index: FunctionComponent = () => {
           aliquam, volutpat justo ut, posuere nulla.
         </p>
       </EuiText>
+
+      <EuiFlexGroup gutterSize="l">
+        <ProjectCard
+          projectTitle="RGB Color Game"
+          projectDescription="Cake sweet roll cheesecake caramels tiramisu powder cupcake powder. Pie tart chocolate cake caramels gingerbread. Bonbon halvah topping cotton candy lollipop ice cream."
+          previewImageURL="https://source.unsplash.com/400x200/?Nature"
+          techUsed={['html', 'css', 'javascript', 'typescript']}
+          linkToCode="www.google.com"
+          linkToDemo="www.google.com"
+        />
+        <ProjectCard
+          projectTitle="RGB Color Game"
+          projectDescription="Cake sweet roll cheesecake caramels tiramisu powder cupcake powder. Pie tart chocolate cake caramels gingerbread. Bonbon halvah topping cotton candy lollipop ice cream."
+          previewImageURL="https://source.unsplash.com/400x200/?Nature"
+          techUsed={['html', 'css', 'javascript', 'typescript']}
+          linkToCode="www.google.com"
+        />
+        <ProjectCard
+          projectTitle="RGB Color Game"
+          projectDescription="Cake sweet roll cheesecake caramels tiramisu powder cupcake powder. Pie tart chocolate cake caramels gingerbread. Bonbon halvah topping cotton candy lollipop ice cream."
+          previewImageURL="https://source.unsplash.com/400x200/?Nature"
+          techUsed={['html', 'css', 'javascript', 'typescript']}
+          linkToDemo="www.google.com"
+        />
+      </EuiFlexGroup>
     </DocsLayout>
   );
 };

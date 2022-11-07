@@ -1,7 +1,4 @@
 import {
-  EuiHeader,
-  EuiHeaderLogo,
-  useGeneratedHtmlId,
   EuiPageTemplate,
   EuiSideNav,
   htmlIdGenerator,
@@ -20,6 +17,7 @@ const pathPrefix = process.env.PATH_PREFIX;
 const DocsLayout = ({ pageHeader, children }) => {
   const sideNav = [
     {
+      name: 'Docs',
       id: htmlIdGenerator('basicExample')(),
       items: [
         {
@@ -39,6 +37,7 @@ const DocsLayout = ({ pageHeader, children }) => {
   const styles = HomePageStyles();
   const imageStyles = styles.profileImage;
   const nameStyles = styles.profileName;
+  const navStyles = styles.sideNavLinks;
 
   const sideBarContents = (
     <>
@@ -66,7 +65,7 @@ const DocsLayout = ({ pageHeader, children }) => {
 
       <EuiSpacer />
 
-      <EuiSideNav mobileTitle="Nav Items" items={sideNav} />
+      <EuiSideNav mobileTitle="Nav Items" items={sideNav} css={navStyles} />
     </>
   );
 
