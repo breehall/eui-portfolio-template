@@ -1,9 +1,5 @@
 import { FunctionComponent } from 'react';
-import {
-  ProjectCard,
-  ProjectCardProps,
-} from '../components/project_card/project_card';
-import { SectionHeader } from '../components/section_header/section_header';
+import { ProjectCard, ProjectCardProps, SectionHeader } from '../components/';
 import { EuiFlexGrid } from '@elastic/eui';
 
 type ProjectsSectionProps = {

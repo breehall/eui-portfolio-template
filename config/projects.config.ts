@@ -1,4 +1,4 @@
-import { ProjectCardProps } from '../src/components/project_card/project_card';
+import { ProjectCardProps } from '../src/components/';
 
 const RECENT_PROJECTS: Array<ProjectCardProps> = [
   {
